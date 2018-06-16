@@ -1,0 +1,36 @@
+{
+  "name": "animelist",
+  "version": "1.0.0",
+  "description": "lightweight local anime tracker app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js",
+    "migrate": "sh /scripts/migrate.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mizopro/animelist.git"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
+  "keywords": [
+    "anime",
+    "list",
+    "animelist",
+    "tracker",
+    "mizopro"
+  ],
+  "author": {
+    "name": "MizoPro",
+    "email": "hmzblhdjahmd@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizopro/animelist/issues"
+  },
+  "homepage": "https://github.com/mizopro/animelist#readme",
+  "readmeFilename": "README.md"
+}

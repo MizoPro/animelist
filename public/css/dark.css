@@ -1,0 +1,20 @@
+/*!
+ * AnimeList `Dark.css`
+ * overrides all colors
+ * used in `common.css`
+ * Alias: Dark theme
+ * Author: MizoPro (C) 2018
+ * License: the MIT License
+ */
+
+body {
+	background-color: #;
+	color: #;
+}
+
+a, a:link, a:visited, a:active {
+	color: #;
+}
+a:hover {
+	color: #;
+}

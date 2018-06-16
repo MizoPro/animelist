@@ -1,0 +1,8 @@
+# Nodejs build artifacts
+node_modules
+npm-debug.log
+
+# Hidden items
+.*
+!/.gitignore
+db/

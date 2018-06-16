@@ -1,0 +1,26 @@
+<!-- 
+  PAGE FOOTER
+  -->
+<footer>
+  <div class="footer__inner">
+    <div class="copyrights">
+      Created By
+      <%= req.app.locals.author.name %> &trade;
+        <br /> Media titles and images are a property of MyAnimeList.net, LLC
+        <br /> All rights are reserved &reg; 2018
+    </div>
+    <div class="links">
+      <div class="social">
+        <ul>
+          <% ['github'].forEach(site => { %>
+            <li>
+              <a href="<%= req.app.locals.author[site] %>" target="_blank" title="<%= site %>">
+                <i class="fa fa-<%= site %>"></i>
+              </a>
+            </li>
+            <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
