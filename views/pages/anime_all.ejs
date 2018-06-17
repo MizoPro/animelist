@@ -7,7 +7,26 @@
 <body>
 
   <% include ../partials/header.ejs %>
+  <% animedb.map((anime, i) => { %>
+    #<%= i %> <%= anime.title %> (<%= JSON.stringify(anime.score.value) %>)<br />
+  <% }) %>
+  Pagination :: <%= pagination.current %> | <%= pagination.total %><br />
+  <% if (pagination.prev !== null) { %>
+    <a href="?page=<%= pagination.prev %>"><%= pagination.prev %></a>
+    <% } %>
+    <% if (pagination.next !== null) { %>
+      <a href="?page=<%= pagination.next %>"><%= pagination.next %></a>
+      <% } %><br />
+      <input type="text" size="15" placeholder="Jump to page" /><button onClick="onJump(event);">Go</button>
   <% include ../partials/footer.ejs %>
 
+  <script type="text/javascript">
+  function onJump(e)
+  {
+    e.preventDefault();
+    let val = document.getElementsByTagName('input')[0].value;
+    if (val) document.location.replace(`?page=${val}`);
+  }
+  </script>
 </body>
 </html>
