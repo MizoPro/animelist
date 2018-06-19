@@ -1,50 +1,99 @@
 <!-- 
-  # PAGE HEADER #
+  # PAGE HEADER
   -->
 <header>
   <div class="header__inner">
     <div class="banner">
-      <div class="banner__inner clearfix">
-        <div class="title fLeft">
-        <h1>
-          <%= req.app.locals.title %>
-        </h1>
-      </div>
-      <div class="nav">
-        <div class="menu">
-          <li>
-            <a href="/about"><i class="fa fa-info-circle"></i> About</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-navicon"></i> External</a>
-            <ul class="submenu js-submenu hidden">
-              <li>A</li>
-              <li>B</li>
-            </ul>
-          </li>
-          <li>
-            <a href="/author"><i class="fa fa-user"></i> Author</a>
-          </li>
+      <div class="banner__inner">
+        <div class="title">
+          <h1>
+            <%= req.app.locals.title %>
+          </h1>
         </div>
-      </div>
+        <div class="mainmenu">
+          <ul>
+            <li>
+              <a href="/about">
+                <i class="fa fa-info-circle"></i> About</a>
+            </li>
+            <li class="js-submenu-click">
+              <a href="#">
+                <i class="fa fa-navicon"></i> External</a>
+              <ul class="submenu js-submenu hidden">
+                <li>MyAnimeList Profile</li>
+                <li>
+                  <a href="<%= req.app.locals.author.myanimelist %>">
+                    <i class="fa fa-external-link"></i> Go</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/author">
+                <i class="fa fa-user"></i> Author</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
         <li>
+          <a href="/">Home</a>
+        </li>
+        <li class="js-submenu-hover">
           <a href="/a/top">Top</a>
           <ul class="submenu js-submenu hidden">
-            <li><a href="/a/top/tv">TV Series</a></li>
+            <li>
+              <span>All</span>
+            </li>
+            <% req.app.locals.ANIME_TYPES.forEach(type => { %>
+              <li>
+                <a href="/a/top/<%= type.name %>" data-type="<%= type.id %>" data-typeName="<%= type.name %>">
+                  <%= type.displayName %>
+                </a>
+              </li>
+            <% }) %>
           </ul>
         </li>
-        <li>
-          <a href="/a/all">All anime</a>
+        <li class="js-submenu-hover">
+          <a href="/a/all">All</a>
+          <ul class="submenu js-submenu hidden">
+            <li>
+              <span>All</span>
+            </li>
+            <% req.app.locals.ANIME_TYPES.forEach(type => { %>
+              <li>
+                <a href="/a/all/<%= type.name %>" data-type="<%= type.id %>" data-typeName="<%= type.name %>">
+                  <%= type.displayName %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
         </li>
-        <li>
+        <li class="js-submenu-hover">
           <a href="/a/random">Random</a>
+          <ul class="submenu js-submenu hidden">
+            <li>
+              <span>All</span>
+            </li>
+            <% req.app.locals.ANIME_TYPES.forEach(type => { %>
+              <li>
+                <a href="/a/random/<%= type.name %>" data-type="<%= type.id %>" data-typeName="<%= type.name %>">
+                  <%= type.displayName %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
         </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<!--
+  # PAGE CONTAINER
+  -->
+<!-- BEGIN container -->
+<div id="container">
+  <!-- BEGIN main-content -->
+  <div id="main-content">

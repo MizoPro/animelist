@@ -1,26 +1,64 @@
+</div>
+<!-- END main-content -->
+</div>
+<!-- END container -->
+
 <!-- 
-  PAGE FOOTER
+  # PAGE FOOTER
   -->
 <footer>
   <div class="footer__inner">
     <div class="copyrights">
       Created By
-      <%= req.app.locals.author.name %> &trade;
-        <br /> Media titles and images are a property of MyAnimeList.net, LLC
-        <br /> All rights are reserved &reg; 2018
+      <span class="author">
+        <%= req.app.locals.author.name %>
+      </span> &trade;
+      <br /> Media titles and images are a property of MyAnimeList.net, LLC
+      <br /> All rights are reserved &reg; 2018
     </div>
-    <div class="links">
-      <div class="social">
+    <div class="links footer__block">
+      <div class="footer__section social">
+        <h3>Social links
+          <i class="fa fa-globe"></i>
+        </h3>
         <ul>
-          <% ['github'].forEach(site => { %>
+          <% ['github', 'twitter'].forEach(site => { %>
             <li>
               <a href="<%= req.app.locals.author[site] %>" target="_blank" title="<%= site %>">
                 <i class="fa fa-<%= site %>"></i>
+                <%= site.capitalize() %>
               </a>
             </li>
-            <% }) %>
+          <% }) %>
+            <li>
+              <a href="<%= req.app.locals.author.myanimelist %>" target="_blank" title="MizoPro on MyAnimeList">
+                <i class="fa fa-link"></i> MyAnimeList
+              </a>
+            </li>
         </ul>
       </div>
+      <div class="footer__section sitemap">
+        <h3>Site links
+          <i class="fa fa-external-link"></i>
+        </h3>
+        <ul>
+          <li>
+            <a href="/" title="Index page">
+              <i class="fa fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="/about" title="About this site">
+              <i class="fa fa-info-circle"></i> About</a>
+          </li>
+          <li>
+            <a href="/author" title="Author's info">
+              <i class="fa fa-user"></i> Author</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="notice">
+      <pre>Disclaimer: R+ and NSFW Titles are NOT filtered. By using this service, you agree to the general <em>Terms &amp; Conditions</em>.</pre>
     </div>
   </div>
 </footer>
